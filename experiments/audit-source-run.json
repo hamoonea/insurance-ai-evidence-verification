@@ -1,0 +1,5 @@
+{
+  "run_id": 43489781164,
+  "source_commit": "1b91d554214d07f7a88656c155a477b4e412c8c4",
+  "purpose": "Read completed synthetic-case artifacts through auditable GitHub logs when local ZIP transfer is unavailable. Does not rerun models or alter outputs."
+}

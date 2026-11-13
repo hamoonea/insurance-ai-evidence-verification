@@ -1,0 +1,55 @@
+name: Export completed run audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ['experiments/audit-source-run.json']
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Read the selected run
+        id: source
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          source=json.loads(Path('experiments/audit-source-run.json').read_text())
+          assert isinstance(source['run_id'],int)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as stream:
+              stream.write('run_id='+str(source['run_id'])+'\n')
+          print('AUDIT_SOURCE '+json.dumps(source))
+          PY
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: development-F*
+          path: shards
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.source.outputs.run_id }}
+      - name: Emit unchanged audit data
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for shard in sorted(Path('shards').glob('development-F*')):
+              for name in ['config.json','backend.json','inputs.json','status.json']:
+                  path=shard/name
+                  if path.exists():
+                      print('AUDIT_FILE '+json.dumps({'family':shard.name,'name':name,'content':json.loads(path.read_text())}))
+              for name in ['dependencies.txt','cpu.txt']:
+                  path=shard/name
+                  if path.exists():
+                      print('AUDIT_TEXT '+json.dumps({'family':shard.name,'name':name,'content':path.read_text()}))
+              for path in sorted((shard/'records').glob('*.json')):
+                  record=json.loads(path.read_text())
+                  print('AUDIT_RECORD '+json.dumps({'family':shard.name,'name':path.name,'content':{k:v for k,v in record.items() if k!='messages'}}))
+          PY
