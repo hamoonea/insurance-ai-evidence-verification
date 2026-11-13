@@ -1,0 +1,58 @@
+name: Analyze development experiment
+
+on:
+  workflow_run:
+    workflows: ['Development model experiment']
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  analyze:
+    if: github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Download family outputs from the completed run
+        uses: actions/download-artifact@v8
+        with:
+          pattern: development-F*
+          path: shards
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Verify and merge with the exact inference code
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from insurance_eval.merge import merge_runs
+          from insurance_eval.analyze import analyze, export_review
+          sources = sorted(Path('shards').glob('development-F*'))
+          out = merge_runs(Path('.'), sources, Path('outputs/combined'))
+          report = analyze(Path('.'), out)
+          export_review(Path('.'), out)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write((out/'results.md').read_text())
+          print('PILOT_ANALYSIS ' + json.dumps(report))
+          for path in sorted((out/'records').glob('*.json')):
+              record = json.loads(path.read_text())
+              print('PILOT_RESPONSE ' + json.dumps({k:v for k,v in record.items() if k!='messages'}))
+          PY
+      - name: Preserve combined analysis and review packet
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: combined-development-results
+          path: outputs/combined/
+          retention-days: 30
+          if-no-files-found: warn
