@@ -12,7 +12,7 @@ def main():
     sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('validate')
     run=sub.add_parser('run')
-    run.add_argument('--backend',choices=['fixture','mlx'],default='mlx')
+    run.add_argument('--backend',choices=['fixture','mlx','transformers'],default='mlx')
     run.add_argument('--model-path')
     run.add_argument('--out',required=True)
     run.add_argument('--limit',type=int)
@@ -20,6 +20,8 @@ def main():
     run.add_argument('--seed',type=int,default=20261113)
     run.add_argument('--temperature',type=float,default=0.0)
     run.add_argument('--max-tokens',type=int,default=2000)
+    run.add_argument('--family',help='Run one complete matched family')
+    run.add_argument('--cpu-threads',type=int,default=4)
     for cmd in ('analyze','review'):
         x=sub.add_parser(cmd);x.add_argument('--out',required=True)
     a=p.parse_args()

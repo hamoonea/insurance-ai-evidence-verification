@@ -1,0 +1,67 @@
+name: Development model experiment
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/cpu-pilot-v1.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: development-model-experiment
+  cancel-in-progress: false
+
+jobs:
+  infer:
+    name: Infer ${{ matrix.family }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        family: [F01, F02, F03, F04]
+    env:
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      HF_HUB_DISABLE_IMPLICIT_TOKEN: '1'
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install CPU inference dependencies
+        run: |
+          python -m pip install --no-cache-dir torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir -r requirements-cpu.txt
+      - name: Verify code and frozen data
+        run: |
+          python -m insurance_eval validate
+          python -m unittest discover -s tests -v
+      - name: Download pinned original weights
+        run: python scripts/download_cpu_model.py
+      - name: Record runtime
+        run: |
+          mkdir -p outputs/${{ matrix.family }}
+          python -m pip freeze > outputs/${{ matrix.family }}/dependencies.txt
+          lscpu > outputs/${{ matrix.family }}/cpu.txt
+      - name: Run three methods on one complete family
+        run: >-
+          python -u -m insurance_eval run --backend transformers
+          --model-path models/qwen3-4b-instruct
+          --out outputs/${{ matrix.family }} --family ${{ matrix.family }}
+          --repeats 1 --temperature 0 --seed 20261113 --max-tokens 2000 --cpu-threads 4
+      - name: Preserve outputs and failures
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: development-${{ matrix.family }}
+          path: outputs/${{ matrix.family }}/
+          retention-days: 30
+          if-no-files-found: warn

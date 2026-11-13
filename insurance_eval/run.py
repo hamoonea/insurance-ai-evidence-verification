@@ -4,7 +4,7 @@ import random
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from .backends import FixtureBackend, MLXBackend
+from .backends import FixtureBackend, MLXBackend, TransformersCPUBackend
 from .core import digest, parse_object, read_jsonl, validate_answer, validate_dataset, write_json
 from .prompts import build_prompt
 
@@ -36,13 +36,20 @@ def execute(args):
     root, out = Path(args.root).resolve(), Path(args.out).resolve()
     audit = validate_dataset(root)
     cases = read_jsonl(root/'data/cases/development.jsonl')
+    family = getattr(args, 'family', None)
+    if family:
+        cases = [c for c in cases if c['family_id'] == family]
+        if not cases:
+            raise ValueError('Unknown family filter')
     if args.limit:
         cases = cases[:args.limit]
     if args.repeats < 1 or (args.limit is not None and args.limit < 1):
         raise ValueError('Positive repeats and limit are required')
     policies = {p['id']: p for p in (json.loads(f.read_text()) for f in (root/'data/policies').glob('*.json'))}
-    config = {'schema_version': 1, 'split': 'development', 'backend': args.backend,
-              'experimental_results': args.backend == 'mlx', 'case_ids': [c['id'] for c in cases],
+    config = {'schema_version': 2, 'split': 'development', 'backend': args.backend,
+              'experimental_results': args.backend != 'fixture', 'case_ids': [c['id'] for c in cases],
+              'family_filter': family,
+              'cpu_threads': getattr(args, 'cpu_threads', 4) if args.backend == 'transformers' else None,
               'methods': list(METHODS), 'repeats': args.repeats, 'seed': args.seed,
               'temperature': args.temperature, 'max_tokens': args.max_tokens,
               'model_path': str(Path(args.model_path).resolve()) if args.model_path else None,
@@ -59,8 +66,14 @@ def execute(args):
             backend = FixtureBackend()
         else:
             if not args.model_path:
-                raise RuntimeError('--model-path must point to existing local MLX weights')
-            backend = MLXBackend(args.model_path, args.max_tokens, args.temperature)
+                raise RuntimeError('--model-path must point to existing local weights')
+            if args.backend == 'mlx':
+                backend = MLXBackend(args.model_path, args.max_tokens, args.temperature)
+            elif args.backend == 'transformers':
+                backend = TransformersCPUBackend(args.model_path, args.max_tokens, args.temperature,
+                                                 getattr(args, 'cpu_threads', 4))
+            else:
+                raise ValueError('Unknown backend')
             backend.metadata['file_sha256'] = model_fingerprint(args.model_path)
         meta_path = out/'backend.json'
         if meta_path.exists() and json.loads(meta_path.read_text()) != backend.metadata:
@@ -106,7 +119,9 @@ def execute(args):
                         record['status'] = 'invalid_output' if 'response' in record else 'backend_error'
                         record['error'] = str(e)
                     write_json(path, record)
-                    print(case['id'], repetition, method, record['status'], flush=True)
+                    response = record.get('response', {})
+                    print(case['id'], repetition, method, record['status'],
+                          response.get('generation_tokens'), response.get('elapsed_seconds'), flush=True)
                 if method == 'direct':
                     # A malformed initial answer still receives both reviews.
                     # A backend failure cannot supply a shared draft.

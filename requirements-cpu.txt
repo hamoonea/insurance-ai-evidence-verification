@@ -1,0 +1,3 @@
+# Install CPU-only torch from https://download.pytorch.org/whl/cpu separately.
+transformers==4.57.3
+accelerate==1.11.0

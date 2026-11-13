@@ -97,3 +97,20 @@ financial savings nor clinical outcomes are measured by this prototype.
 The 90-case set and held-out evaluation are future work, not existing deliverables.
 The present code and data can support feasibility work but do not establish
 clinical reliability or superiority over another method.
+
+## CPU pilot amendment — November 13, 2026
+
+Before the first successful model generation, the execution plan was amended
+because the local MLX runtime could not access a Metal GPU. The CPU pilot uses the
+original `Qwen/Qwen3-4B-Instruct-2507` BF16 checkpoint, pinned to revision
+`cdbee75f17c01a7cc42f958dc650907174af0554`, through Transformers on standard
+GitHub-hosted CPU runners. This is not the proposed MLX 4-bit conversion.
+
+The [frozen run specification](../experiments/cpu-pilot-v1.json) preserves the
+existing cases, gold labels, prompts, validator, and analysis definitions. Each
+matched family runs on one worker; all three methods for a case share the same
+initial answer. Greedy decoding, one repeat, seed 20261113, and a 2,000-token output
+limit are fixed before generation. Failed or truncated outputs are retained.
+The family shards must have identical settings, model fingerprints, and code/data
+hashes before merging. This change addresses execution feasibility and does not
+establish equivalence between the BF16 and MLX-quantized models.

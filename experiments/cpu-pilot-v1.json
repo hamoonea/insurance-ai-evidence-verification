@@ -1,0 +1,18 @@
+{
+  "status": "frozen_before_first_model_run",
+  "date": "2026-11-13",
+  "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "backend": "transformers_cpu_bfloat16",
+  "reason_for_change": "Local MLX import fails because the execution session has no accessible Metal GPU. This pilot uses the original BF16 checkpoint on standard GitHub-hosted CPU runners instead of the proposed MLX 4-bit conversion. Results will not be attributed to the MLX conversion.",
+  "families": ["F01", "F02", "F03", "F04"],
+  "methods": ["direct", "generic", "evidence"],
+  "decoding": "greedy",
+  "seed": 20261113,
+  "repeats": 1,
+  "max_new_tokens": 2000,
+  "cpu_threads": 4,
+  "gold_status": "AI-drafted; independent review pending",
+  "scope": "Exploratory development results only; no held-out or clinical validation",
+  "analysis": "Use the existing labels, prompts, validator, and metric definitions unchanged. Count invalid and missing outputs. Preserve raw generations and any gate-induced label changes. Do not tune prompts or labels during this run."
+}
