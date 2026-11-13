@@ -1,0 +1,35 @@
+{
+  "created_date": "2026-11-13",
+  "dataset_version": "development-v0.1",
+  "cases": 12,
+  "families": 4,
+  "held_out_test_cases": 0,
+  "independent_review": false,
+  "source_format": "Normalized extraction of CMS A-D policy text, not original HTML",
+  "files": [
+    {
+      "path": "data/cases/development.jsonl",
+      "sha256": "b2efaa417ad380a61fc2834e66078ab4ba07570c24f833fa87c8355bf657fe7c"
+    },
+    {
+      "path": "data/gold/development.jsonl",
+      "sha256": "6c4e25f74d024b9cecb838689cd1f18bd641735c5975b531a7fd5b722b993c4d"
+    },
+    {
+      "path": "data/policies/cpap.json",
+      "sha256": "8004d4b9f80a31632ad0c576daee677a0bea5e8996030756b35ec047f4688275"
+    },
+    {
+      "path": "data/policies/ldct.json",
+      "sha256": "ca07917b4736b5a0b42c5e122ca6eac34df5dccd66d65534c70d1e86c5e20b4d"
+    },
+    {
+      "path": "data/raw/cpap_policy_extraction.txt",
+      "sha256": "d64f118d5d840ff6444532ab9db922c391d8eb7fa1c599882c14ce7ef316dbd1"
+    },
+    {
+      "path": "data/raw/ldct_policy_extraction.txt",
+      "sha256": "071f3fce865fd15ceca4ada460b9a843cffafaf393270b0386f868dce5ffe58c"
+    }
+  ]
+}

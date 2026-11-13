@@ -1,0 +1,4 @@
+# Optional; the offline checks require only Python standard library.
+# Versions detected in the existing local research environment.
+mlx==0.32.4
+mlx-lm==0.32.2

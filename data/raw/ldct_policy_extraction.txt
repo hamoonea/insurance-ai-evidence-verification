@@ -1,0 +1,41 @@
+L95: A. General
+L96: Lung cancer is the third most common cancer and the leading cause of cancer deaths in the United States. Cancer of the lung and bronchus accounted for over 130,000 deaths in 2021 (more than the total number of estimated deaths from colon, breast and prostate cancer combined) with a median age at death of 72 years. Computed tomography (CT) is an imaging procedure that uses specialized x-ray equipment to create detailed pictures of areas inside the body.
+L97: Low dose computed tomography (LDCT) is a chest CT scan performed at settings to minimize radiation exposure compared to a standard chest CT.
+L98: Under §1861(ddd) of the Social Security Act (the Act), the Centers for Medicare & Medicaid Services(CMS) has the authority to add coverage of “additional preventive services” through the Medicare national coverage determination (NCD) process if certain statutory requirements are met: (1) reasonable and necessary for the prevention or early detection of illness or disability, (2) recommended with a grade of A or B by the United States Preventive Services Task Force (USPSTF), and (3) appropriate for individuals entitled to benefits under Part A or enrolled under Part B.
+L99: Indications and Limitations of Coverage
+L100: 
+L101: B. Nationally Covered Indications
+L102: Effective for claims with dates of service on or after February 10, 2022, CMS has determined that the evidence is sufficient to cover, under Medicare Part B, a lung cancer screening counseling and shared decision-making visit, and for appropriate beneficiaries, annual screening for lung cancer with LDCT, as an additional preventive service benefit under the Medicare program, only if all of the following eligibility criteria are met.
+L103: 
+L104: Beneficiary Eligibility Criteria
+L105: Beneficiaries must meet all of the following eligibility criteria:
+L106: 
+L107:   * Age 50 - 77 years;
+L108:   * Asymptomatic (no signs or symptoms of lung cancer);
+L109:   * Tobacco smoking history of at least 20 pack-years (one pack-year = smoking one pack per day for one year; 1 pack =20 cigarettes);
+L110:   * Current smoker or one who has quit smoking within the last 15 years; and,
+L111:   * Receive an order for lung cancer screening with LDCT.
+L112: 
+L113: Counseling and Shared Decision-Making Visit
+L114: Before the beneficiary's first lung cancer LDCT screening, the beneficiary must receive a counseling and shared decision-making visit that meets all of the following criteria, and is appropriately documented in the beneficiary's medical records:
+L115:   * Determination of beneficiary eligibility;
+L116:   * Shared decision-making, including the use of one or more decision aids;
+L117:   * Counseling on the importance of adherence to annual lung cancer LDCT screening, impact of comorbidities and ability or willingness to undergo diagnosis and treatment; and,
+L118:   * Counseling on the importance of maintaining cigarette smoking abstinence if former smoker; or the importance of smoking cessation if current smoker and, if appropriate, furnishing of information about tobacco cessation interventions.
+L119: Reading Radiologist Eligibility Criteria
+L120: 
+L121: The reading radiologist must have board certification or board eligibility with the American Board of Radiology or equivalent organization.
+L122: 
+L123: Radiology Imaging Facility Eligibility Criteria
+L124: 
+L125: Lung cancer screening with LDCT must be furnished in a radiology imaging facility that utilizes a standardized lung nodule identification, classification, and reporting system.
+L126: 
+L127: C. Nationally Non-Covered Indications
+L128: Preventive services are non-covered by Medicare unless specifically covered in this NCD, any other NCD, or in statute or regulations.
+L129: 
+L130: D. Other
+L131: 
+L132: Medicare Part B coinsurance and deductible are waived for this preventive service.
+L133: 
+L134: (This NCD last reviewed February 2022.)
+

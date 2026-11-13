@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this research prototype, cite the software and the original policy sources."
+type: software
+title: "Insurance AI Evidence Verification"
+authors:
+  - family-names: Ahmad
+    given-names: Iftekhar
+version: 0.1.0
+date-released: 2026-11-13
+repository-code: "https://github.com/hamoonea/insurance-ai-evidence-verification"
+abstract: >-
+  Development prototype comparing direct answers, generic self-review, and
+  evidence verification for missing-information handling in scoped healthcare
+  insurance policy questions. Includes 12 fictional AI-drafted development cases.
+  Case annotations await independent review; no live model findings are reported.

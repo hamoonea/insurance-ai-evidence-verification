@@ -1,0 +1,129 @@
+{
+  "id": "LDCT",
+  "ncd": "210.14",
+  "version": 2,
+  "effective_date": "2022-02-10",
+  "source_url": "https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=364&ncdver=2",
+  "retrieved_date": "2026-11-13",
+  "provenance": "Normalized web extraction of official CMS policy; not original HTML. Segment IDs refer to extraction lines, not CMS clause numbering.",
+  "scope": "Complete extracted substantive policy sections A through D; website navigation, revision history, generic help, billing notices and linked documents excluded.",
+  "segments": [
+    {
+      "id": "LDCT-L95",
+      "text": "A. General"
+    },
+    {
+      "id": "LDCT-L96",
+      "text": "Lung cancer is the third most common cancer and the leading cause of cancer deaths in the United States. Cancer of the lung and bronchus accounted for over 130,000 deaths in 2021 (more than the total number of estimated deaths from colon, breast and prostate cancer combined) with a median age at death of 72 years. Computed tomography (CT) is an imaging procedure that uses specialized x-ray equipment to create detailed pictures of areas inside the body."
+    },
+    {
+      "id": "LDCT-L97",
+      "text": "Low dose computed tomography (LDCT) is a chest CT scan performed at settings to minimize radiation exposure compared to a standard chest CT."
+    },
+    {
+      "id": "LDCT-L98",
+      "text": "Under §1861(ddd) of the Social Security Act (the Act), the Centers for Medicare & Medicaid Services(CMS) has the authority to add coverage of “additional preventive services” through the Medicare national coverage determination (NCD) process if certain statutory requirements are met: (1) reasonable and necessary for the prevention or early detection of illness or disability, (2) recommended with a grade of A or B by the United States Preventive Services Task Force (USPSTF), and (3) appropriate for individuals entitled to benefits under Part A or enrolled under Part B."
+    },
+    {
+      "id": "LDCT-L99",
+      "text": "Indications and Limitations of Coverage"
+    },
+    {
+      "id": "LDCT-L101",
+      "text": "B. Nationally Covered Indications"
+    },
+    {
+      "id": "LDCT-L102",
+      "text": "Effective for claims with dates of service on or after February 10, 2022, CMS has determined that the evidence is sufficient to cover, under Medicare Part B, a lung cancer screening counseling and shared decision-making visit, and for appropriate beneficiaries, annual screening for lung cancer with LDCT, as an additional preventive service benefit under the Medicare program, only if all of the following eligibility criteria are met."
+    },
+    {
+      "id": "LDCT-L104",
+      "text": "Beneficiary Eligibility Criteria"
+    },
+    {
+      "id": "LDCT-L105",
+      "text": "Beneficiaries must meet all of the following eligibility criteria:"
+    },
+    {
+      "id": "LDCT-L107",
+      "text": "  * Age 50 - 77 years;"
+    },
+    {
+      "id": "LDCT-L108",
+      "text": "  * Asymptomatic (no signs or symptoms of lung cancer);"
+    },
+    {
+      "id": "LDCT-L109",
+      "text": "  * Tobacco smoking history of at least 20 pack-years (one pack-year = smoking one pack per day for one year; 1 pack =20 cigarettes);"
+    },
+    {
+      "id": "LDCT-L110",
+      "text": "  * Current smoker or one who has quit smoking within the last 15 years; and,"
+    },
+    {
+      "id": "LDCT-L111",
+      "text": "  * Receive an order for lung cancer screening with LDCT."
+    },
+    {
+      "id": "LDCT-L113",
+      "text": "Counseling and Shared Decision-Making Visit"
+    },
+    {
+      "id": "LDCT-L114",
+      "text": "Before the beneficiary's first lung cancer LDCT screening, the beneficiary must receive a counseling and shared decision-making visit that meets all of the following criteria, and is appropriately documented in the beneficiary's medical records:"
+    },
+    {
+      "id": "LDCT-L115",
+      "text": "  * Determination of beneficiary eligibility;"
+    },
+    {
+      "id": "LDCT-L116",
+      "text": "  * Shared decision-making, including the use of one or more decision aids;"
+    },
+    {
+      "id": "LDCT-L117",
+      "text": "  * Counseling on the importance of adherence to annual lung cancer LDCT screening, impact of comorbidities and ability or willingness to undergo diagnosis and treatment; and,"
+    },
+    {
+      "id": "LDCT-L118",
+      "text": "  * Counseling on the importance of maintaining cigarette smoking abstinence if former smoker; or the importance of smoking cessation if current smoker and, if appropriate, furnishing of information about tobacco cessation interventions."
+    },
+    {
+      "id": "LDCT-L119",
+      "text": "Reading Radiologist Eligibility Criteria"
+    },
+    {
+      "id": "LDCT-L121",
+      "text": "The reading radiologist must have board certification or board eligibility with the American Board of Radiology or equivalent organization."
+    },
+    {
+      "id": "LDCT-L123",
+      "text": "Radiology Imaging Facility Eligibility Criteria"
+    },
+    {
+      "id": "LDCT-L125",
+      "text": "Lung cancer screening with LDCT must be furnished in a radiology imaging facility that utilizes a standardized lung nodule identification, classification, and reporting system."
+    },
+    {
+      "id": "LDCT-L127",
+      "text": "C. Nationally Non-Covered Indications"
+    },
+    {
+      "id": "LDCT-L128",
+      "text": "Preventive services are non-covered by Medicare unless specifically covered in this NCD, any other NCD, or in statute or regulations."
+    },
+    {
+      "id": "LDCT-L130",
+      "text": "D. Other"
+    },
+    {
+      "id": "LDCT-L132",
+      "text": "Medicare Part B coinsurance and deductible are waived for this preventive service."
+    },
+    {
+      "id": "LDCT-L134",
+      "text": "(This NCD last reviewed February 2022.)"
+    }
+  ]
+}
+

@@ -1,0 +1,42 @@
+name: Software checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.13']
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Validate frozen development data
+        run: python -m insurance_eval validate
+      - name: Run unit and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Exercise the fixture pipeline
+        run: |
+          python -m insurance_eval run --backend fixture --out outputs/ci-smoke
+          python -m insurance_eval analyze --out outputs/ci-smoke
+          python -m insurance_eval review --out outputs/ci-smoke
+      - name: Verify fixture results are not model findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('outputs/ci-smoke/analysis.json').read_text())
+          assert result['model_performance_reported'] is False
+          assert result['expected_records'] == result['saved_records'] == result['valid_records'] == 36
+          PY
