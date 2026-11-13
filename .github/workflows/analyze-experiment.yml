@@ -44,6 +44,8 @@ jobs:
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
               summary.write((out/'results.md').read_text())
           print('PILOT_ANALYSIS ' + json.dumps(report))
+          for name in ['config.json', 'backend.json', 'inputs.json', 'merged_shards.json', 'status.json', 'scored_cases.json']:
+              print('PILOT_FILE ' + json.dumps({'name': name, 'content': json.loads((out/name).read_text())}))
           for path in sorted((out/'records').glob('*.json')):
               record = json.loads(path.read_text())
               print('PILOT_RESPONSE ' + json.dumps({k:v for k,v in record.items() if k!='messages'}))
