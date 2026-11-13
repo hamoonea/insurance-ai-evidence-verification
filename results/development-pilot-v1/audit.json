@@ -1,0 +1,10 @@
+{
+  "source_run_id": 43489781164,
+  "analysis_run_id": 43496819358,
+  "analysis_job_id": 132131962954,
+  "response_count": 36,
+  "verification": "All 36 request hashes, 16 input/code hashes and output validations match. Scored rows exactly match remote analysis; floating-point summary values match within 1e-12. Published analysis preserves remote values.",
+  "source": "Structured PILOT_* JSON log export from the successful analysis workflow",
+  "analysis_url": "https://github.com/hamoonea/insurance-ai-evidence-verification/actions/runs/43496819358",
+  "independent_review": false
+}

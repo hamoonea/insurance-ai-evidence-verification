@@ -1,7 +1,9 @@
 # Experimental protocol
 
 Version 0.1, November 13, 2026. Development protocol, not a preregistration or a
-completed study. No live model performance measurements are available.
+completed study. The original protocol and CPU amendment preceded inference.
+Execution status: the [first pilot results](../results/development-pilot-v1/README.md)
+are now available; the evaluation rules below were not changed after generation.
 
 ## Research question
 

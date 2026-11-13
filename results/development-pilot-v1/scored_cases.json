@@ -1,0 +1,326 @@
+[
+  {
+    "case_id": "D001",
+    "family_id": "F03",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D001",
+    "family_id": "F03",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D001",
+    "family_id": "F03",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D002",
+    "family_id": "F04",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D002",
+    "family_id": "F04",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D002",
+    "family_id": "F04",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D003",
+    "family_id": "F03",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D003",
+    "family_id": "F03",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "insufficient_information",
+    "raw_prediction": "insufficient_information"
+  },
+  {
+    "case_id": "D003",
+    "family_id": "F03",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "insufficient_information",
+    "raw_prediction": "insufficient_information"
+  },
+  {
+    "case_id": "D004",
+    "family_id": "F01",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D004",
+    "family_id": "F01",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D004",
+    "family_id": "F01",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "invalid_output",
+    "raw_prediction": "invalid_output"
+  },
+  {
+    "case_id": "D005",
+    "family_id": "F02",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D005",
+    "family_id": "F02",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D005",
+    "family_id": "F02",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "invalid_output",
+    "raw_prediction": "invalid_output"
+  },
+  {
+    "case_id": "D006",
+    "family_id": "F03",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D006",
+    "family_id": "F03",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D006",
+    "family_id": "F03",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D007",
+    "family_id": "F02",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D007",
+    "family_id": "F02",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D007",
+    "family_id": "F02",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D008",
+    "family_id": "F04",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D008",
+    "family_id": "F04",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D008",
+    "family_id": "F04",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "not_supported",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D009",
+    "family_id": "F02",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D009",
+    "family_id": "F02",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D009",
+    "family_id": "F02",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "not_supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D010",
+    "family_id": "F04",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "not_supported",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D010",
+    "family_id": "F04",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D010",
+    "family_id": "F04",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "insufficient_information",
+    "raw_prediction": "not_supported"
+  },
+  {
+    "case_id": "D011",
+    "family_id": "F01",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D011",
+    "family_id": "F01",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D011",
+    "family_id": "F01",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "supported",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D012",
+    "family_id": "F01",
+    "method": "direct",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "supported",
+    "raw_prediction": "supported"
+  },
+  {
+    "case_id": "D012",
+    "family_id": "F01",
+    "method": "generic",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "insufficient_information",
+    "raw_prediction": "insufficient_information"
+  },
+  {
+    "case_id": "D012",
+    "family_id": "F01",
+    "method": "evidence",
+    "repetition": 0,
+    "gold": "insufficient_information",
+    "prediction": "invalid_output",
+    "raw_prediction": "invalid_output"
+  }
+]

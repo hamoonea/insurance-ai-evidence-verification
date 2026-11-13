@@ -1,17 +1,24 @@
 # Insurance AI Evidence Verification
 
-**v0.1 · Research prototype · No live model results yet**
+**v0.2 · First model experiment complete · Exploratory development results**
 
 This research prototype tests whether checking policy conditions against supplied
 facts can reduce definitive answers when required information is missing.
 The [experimental protocol](docs/protocol.md) describes the comparison and its
 limits. This is an independent, AI-assisted research project by Iftekhar Ahmad.
 
-**Current status:** 12 fictional development cases, two versioned CMS policy
-extracts, three comparison methods, a local MLX model adapter, reproducible run
-records, automated label analysis, and a review packet exporter are implemented.
-The cases and answer keys are AI-drafted and await independent review. There are
-no held-out test cases yet. Software fixtures are never reported as model results.
+**First result:** On 12 fictional development cases, generic review scored 9/12,
+evidence verification 8/12, and direct answers 6/12. Evidence verification reduced
+unsupported definitive answers on incomplete cases but produced three invalid
+outputs; its invalid-inclusive failure rate matched generic review. The pilot
+does not establish evidence verification as the stronger method. Read the
+[full findings and failures](results/development-pilot-v1/README.md).
+
+All 36 genuine Qwen3-4B generations are published with model provenance and
+replayable scoring. The cases and answer keys are AI-drafted and await independent
+review. There are no held-out test cases yet. Software fixtures are never reported
+as model results. CPU and MLX adapters, automated analysis, and review export are
+implemented; CPU execution was validated in this pilot.
 
 ## Quick start
 
@@ -31,6 +38,43 @@ python3 -m insurance_eval review --out outputs/software-smoke
 The fixture deliberately abstains on every case. Its only purpose is to test file
 flow and output validation. The analyzer suppresses model performance statistics
 for fixture runs.
+
+## Reproduce the published analysis
+
+This verifies frozen code/data hashes, reconstructs all 36 prompt hashes, rechecks
+raw outputs, reproduces scores, and creates a review packet. It needs no model,
+GPU, API key, or inference dependencies:
+
+```sh
+python3 scripts/replay_pilot_results.py --out outputs/replayed-development-pilot
+```
+
+The actual model run is recorded in
+[GitHub Actions](https://github.com/hamoonea/insurance-ai-evidence-verification/actions/runs/43489781164).
+Replaying saved outputs is distinct from generating new model answers.
+
+## Run the CPU model
+
+The completed pilot used Python 3.11 on Linux, original BF16 weights and four CPU
+threads. The explicit download step retrieves a pinned public checkpoint. Allow
+space for approximately 8 GB of weights and substantial CPU inference time.
+Install in a separate environment:
+
+```sh
+python3 -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+python3 -m pip install -r requirements-cpu.txt
+python3 scripts/download_cpu_model.py
+python3 -m insurance_eval run --backend transformers \
+  --model-path models/qwen3-4b-instruct --out outputs/new-cpu-run \
+  --repeats 1 --temperature 0 --seed 20261113 --max-tokens 2000 --cpu-threads 4
+python3 -m insurance_eval analyze --out outputs/new-cpu-run
+python3 -m insurance_eval review --out outputs/new-cpu-run
+```
+
+The [experiment workflow](.github/workflows/development-experiment.yml) runs one
+whole family per CPU worker. Its companion analysis workflow merges compatible
+shards using the exact inference source commit. Hardware and numerical runtime
+differences can affect newly generated responses.
 
 ## Run a local model
 
@@ -107,9 +151,10 @@ fictional cases and not patient records.
 * `tests/`: meaningful failure, leakage, metric and integration checks.
 * `docs/reviewer-guide.md`: annotation and review instructions.
 
-Generated run records, environments, model weights, and machine-specific logs are
-excluded from version control. The quick-start commands regenerate the software
-check and review packet locally.
+Working run directories, environments, model weights, and machine-specific logs
+are excluded from version control. The reviewed publication under
+`results/development-pilot-v1/` retains all 36 responses, scores and provenance.
+The replay command regenerates the actual-output review packet locally.
 
 Sources were retrieved through web extraction on November 13, 2026. Direct shell
 downloads could not resolve the CMS host. These files are labeled as normalized
@@ -133,10 +178,12 @@ cost. The prototype does not estimate financial savings or patient outcomes.
 
 ## Next research milestone
 
-Review these 12 cases with a coverage-review expert, execute one development run,
-inspect its failures, and then expand to the planned 90 cases. Freeze family splits
-and prompts before evaluating the future held-out set. The present package is a
-feasibility prototype, not a completed study or a validated coverage system.
+The first development run and failure inspection are complete. Next, review these
+12 cases with a coverage-review expert, address the observed logic-format and
+evidence-interpretation failures in a separately versioned experiment, and expand
+toward the planned 90 cases. Freeze family splits and prompts before evaluating
+the future held-out set. The present package is a feasibility prototype, not a
+completed study or a validated coverage system.
 
 ## Sources and prior work
 

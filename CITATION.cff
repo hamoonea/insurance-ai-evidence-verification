@@ -5,11 +5,12 @@ title: "Insurance AI Evidence Verification"
 authors:
   - family-names: Ahmad
     given-names: Iftekhar
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-11-13
 repository-code: "https://github.com/hamoonea/insurance-ai-evidence-verification"
 abstract: >-
   Development prototype comparing direct answers, generic self-review, and
   evidence verification for missing-information handling in scoped healthcare
   insurance policy questions. Includes 12 fictional AI-drafted development cases.
-  Case annotations await independent review; no live model findings are reported.
+  Includes a 36-generation CPU pilot with mixed results and retained failures.
+  Case annotations await independent review; no held-out claims are made.

@@ -26,6 +26,8 @@ jobs:
         run: python -m insurance_eval validate
       - name: Run unit and integration tests
         run: python -m unittest discover -s tests -v
+      - name: Reproduce published model scores without inference
+        run: python scripts/replay_pilot_results.py --out outputs/ci-pilot-replay
       - name: Exercise the fixture pipeline
         run: |
           python -m insurance_eval run --backend fixture --out outputs/ci-smoke

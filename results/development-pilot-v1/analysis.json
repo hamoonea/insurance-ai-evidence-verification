@@ -1,0 +1,181 @@
+{
+  "kind": "model_inference",
+  "split": "development",
+  "independent_review": false,
+  "methods": {
+    "direct": {
+      "n": 12,
+      "correct": 6,
+      "accuracy": 0.5,
+      "unsupported_definitiveness": 1,
+      "unresolved_case_failure": 1,
+      "answer_rate_complete_cases": 1,
+      "selective_error": 0.5,
+      "unsupported_negative_count": 4,
+      "invalid_or_missing_count": 0,
+      "macro_f1": 0.38888888888888884,
+      "per_class_recall": {
+        "supported": 0.5,
+        "not_supported": 1,
+        "insufficient_information": 0
+      },
+      "confusion_matrix": {
+        "supported": {
+          "supported": 2,
+          "not_supported": 2,
+          "insufficient_information": 0,
+          "invalid_output": 0,
+          "missing_output": 0
+        },
+        "not_supported": {
+          "supported": 0,
+          "not_supported": 4,
+          "insufficient_information": 0,
+          "invalid_output": 0,
+          "missing_output": 0
+        },
+        "insufficient_information": {
+          "supported": 2,
+          "not_supported": 2,
+          "insufficient_information": 0,
+          "invalid_output": 0,
+          "missing_output": 0
+        }
+      }
+    },
+    "generic": {
+      "n": 12,
+      "correct": 9,
+      "accuracy": 0.75,
+      "unsupported_definitiveness": 0.5,
+      "unresolved_case_failure": 0.5,
+      "answer_rate_complete_cases": 1,
+      "selective_error": 0.3,
+      "unsupported_negative_count": 1,
+      "invalid_or_missing_count": 0,
+      "macro_f1": 0.7407407407407406,
+      "per_class_recall": {
+        "supported": 0.75,
+        "not_supported": 1,
+        "insufficient_information": 0.5
+      },
+      "confusion_matrix": {
+        "supported": {
+          "supported": 3,
+          "not_supported": 1,
+          "insufficient_information": 0,
+          "invalid_output": 0,
+          "missing_output": 0
+        },
+        "not_supported": {
+          "supported": 0,
+          "not_supported": 4,
+          "insufficient_information": 0,
+          "invalid_output": 0,
+          "missing_output": 0
+        },
+        "insufficient_information": {
+          "supported": 2,
+          "not_supported": 0,
+          "insufficient_information": 2,
+          "invalid_output": 0,
+          "missing_output": 0
+        }
+      }
+    },
+    "evidence": {
+      "n": 12,
+      "correct": 8,
+      "accuracy": 0.6666666666666666,
+      "unsupported_definitiveness": 0.25,
+      "unresolved_case_failure": 0.5,
+      "answer_rate_complete_cases": 0.75,
+      "selective_error": 0.14285714285714285,
+      "unsupported_negative_count": 1,
+      "invalid_or_missing_count": 3,
+      "macro_f1": 0.746031746031746,
+      "per_class_recall": {
+        "supported": 1,
+        "not_supported": 0.5,
+        "insufficient_information": 0.5
+      },
+      "confusion_matrix": {
+        "supported": {
+          "supported": 4,
+          "not_supported": 0,
+          "insufficient_information": 0,
+          "invalid_output": 0,
+          "missing_output": 0
+        },
+        "not_supported": {
+          "supported": 0,
+          "not_supported": 2,
+          "insufficient_information": 0,
+          "invalid_output": 2,
+          "missing_output": 0
+        },
+        "insufficient_information": {
+          "supported": 0,
+          "not_supported": 1,
+          "insufficient_information": 2,
+          "invalid_output": 1,
+          "missing_output": 0
+        }
+      }
+    }
+  },
+  "paired_comparison": {
+    "available": true,
+    "estimate": -0.25,
+    "percentile_95_interval": [
+      -0.75,
+      0
+    ],
+    "families": 4,
+    "draws": 2000,
+    "seed": 20261113,
+    "interpretation": "Exploratory family bootstrap; correlated variants/repeats preserved; small-sample uncertainty is substantial."
+  },
+  "raw_evidence_labels": {
+    "n": 12,
+    "correct": 6,
+    "accuracy": 0.5,
+    "unsupported_definitiveness": 0.5,
+    "unresolved_case_failure": 0.75,
+    "answer_rate_complete_cases": 0.75,
+    "selective_error": 0.375,
+    "unsupported_negative_count": 2,
+    "invalid_or_missing_count": 3,
+    "macro_f1": 0.5499999999999999,
+    "per_class_recall": {
+      "supported": 0.75,
+      "not_supported": 0.5,
+      "insufficient_information": 0.25
+    },
+    "confusion_matrix": {
+      "supported": {
+        "supported": 3,
+        "not_supported": 1,
+        "insufficient_information": 0,
+        "invalid_output": 0,
+        "missing_output": 0
+      },
+      "not_supported": {
+        "supported": 0,
+        "not_supported": 2,
+        "insufficient_information": 0,
+        "invalid_output": 2,
+        "missing_output": 0
+      },
+      "insufficient_information": {
+        "supported": 1,
+        "not_supported": 1,
+        "insufficient_information": 1,
+        "invalid_output": 1,
+        "missing_output": 0
+      }
+    }
+  },
+  "semantic_evidence_and_clarification_scores": "pending human review",
+  "scope": "AI-drafted development set; exploratory label results only, no held-out or expert-validated claims."
+}
